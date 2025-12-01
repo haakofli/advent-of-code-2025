@@ -1,3 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+using System.Diagnostics;
+using advent_of_code_2025.day1;
 
-Console.WriteLine("Hello, World!");
+var stopwatch = Stopwatch.StartNew();
+
+var path = "../../../inputs/day1part1.txt";
+day1.Day1Part2(path);
+
+stopwatch.Stop();
+Console.WriteLine($"Execution time: {stopwatch.ElapsedMilliseconds}ms");
