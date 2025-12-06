@@ -1,8 +1,8 @@
 ﻿namespace advent_of_code_2025.day1;
 
-public class day1
+public class day
 {
-    public static void Day1Part1(string path)
+    public static void Part1(string path)
     {
         var file = File.ReadAllLines(path);
 
@@ -23,7 +23,7 @@ public class day1
         Console.WriteLine($"Count: {count}");
     }
 
-    public static void Day1Part2(string path)
+    public static void Part2(string path)
     {
         var file = File.ReadAllLines(path);
 

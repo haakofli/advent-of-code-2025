@@ -1,14 +1,12 @@
 using System.Diagnostics;
-using advent_of_code_2025.day1;
-using advent_of_code_2025.day2;
-using advent_of_code_2025.day3;
-using advent_of_code_2025.day4;
-using advent_of_code_2025.day5;
+using DayNs = advent_of_code_2025.day6;
 
-var stopwatch = Stopwatch.StartNew();
+var dayFile = typeof(DayNs.day).Namespace!.Split('.').Last();
+var path = $"../../../inputs/{dayFile}.txt";
 
-var path = "../../../inputs/day5.txt";
-day5.Part2(path);
+var sw = Stopwatch.StartNew();
 
-stopwatch.Stop();
-Console.WriteLine($"Execution time: {stopwatch.ElapsedMilliseconds}ms");
+DayNs.day.Part2(path);
+
+sw.Stop();
+Console.WriteLine($"Execution time: {sw.ElapsedMilliseconds}ms");

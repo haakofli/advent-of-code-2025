@@ -1,6 +1,6 @@
 namespace advent_of_code_2025.day5;
 
-public class day5
+public class day
 {
     public static void Part1(string path)
     {

@@ -1,20 +1,22 @@
 namespace advent_of_code_2025.day2;
 
-public class day2
+public class day
 {
     private static readonly CurrentPart _part = CurrentPart.PartTwo;
 
-    public static void Day2Part1(string path)
+    public static void Part1(string path)
     {
+        var part = CurrentPart.PartOne;
         var productIdRanges = PopulateProductIdRangeFromInput(path);
-        var sum = productIdRanges.Select(x => x.CountInvalidIds()).Sum();
+        var sum = productIdRanges.Select(x => x.CountInvalidIds(part)).Sum();
         Console.WriteLine($"Invalid ids: {sum}");
     }
     
-    public static void Day2Part2(string path)
+    public static void Part2(string path)
     {
+        var part = CurrentPart.PartTwo;
         var productIdRanges = PopulateProductIdRangeFromInput(path);
-        var sum = productIdRanges.Select(x => x.CountInvalidIds()).Sum();
+        var sum = productIdRanges.Select(x => x.CountInvalidIds(part)).Sum();
         Console.WriteLine($"Invalid ids: {sum}");
     }
 
@@ -23,19 +25,19 @@ public class day2
         public long Start { get; init; }
         public long End { get; init; }
 
-        public long CountInvalidIds()
+        public long CountInvalidIds(CurrentPart part)
         {
             long sum = 0;
             for (long i = Start; i < End + 1; i++)
             {
-                if (IsInvalid(i)) sum += i;
+                if (IsInvalid(i, part)) sum += i;
             }
             return sum;
         }
 
-        private bool IsInvalid(long id)
+        private bool IsInvalid(long id, CurrentPart part)
         {
-            if (_part is CurrentPart.PartOne)
+            if (part is CurrentPart.PartOne)
             {
                 var stringId = id.ToString();
                 if (stringId.Length % 2 != 0) return false;
